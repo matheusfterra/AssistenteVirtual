@@ -1,7 +1,7 @@
 # Curso 1 - Engenheria com Dados : Assistente Virtual
 O Intuito deste projeto, é permitir a centralização de todas as mensagens que chegam no WhatsApp, em uma única conversa do Telegram, de forma que seja possível responder todas as mensagens por meio desta única conversa.
 
-Acesse as aulas [Clicando Aqui]: <https://bit.ly/Canal-Engenharia-com-Dados>
+Acesse as aulas [Clicando Aqui]<https://bit.ly/Canal-Engenharia-com-Dados>:
 
 ## Conteúdo
 * [Como instalar](#Instalação)
@@ -24,7 +24,7 @@ Para instalação, localize o diretório do projeto por meio do terminal e reali
 
 ## Créditos
 
-* [Curso Gratuito]: <https://bit.ly/Canal-Engenharia-com-Dados>
-* [Instagram]: <https://instagram.com/engenheiro_automacao>
-* [LinkedIn]: <https://www.linkedin.com/in/matheus-terra/>
+* [Curso Gratuito]<https://bit.ly/Canal-Engenharia-com-Dados>
+* [Instagram]<https://instagram.com/engenheiro_automacao>
+* [LinkedIn]<https://www.linkedin.com/in/matheus-terra/>
 
