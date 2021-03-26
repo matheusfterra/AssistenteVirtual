@@ -1,0 +1,8 @@
+{
+    "db_prod": {
+    "host": "",
+    "user": "",
+    "pass": "",
+    "database": ""
+  }
+}
