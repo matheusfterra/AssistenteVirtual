@@ -5,3 +5,6 @@ pyvenv.cfg
 /Logs/
 /.idea/
 /Cookies/
+Configs/
+*.json
+
