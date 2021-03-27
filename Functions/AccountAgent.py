@@ -10,7 +10,6 @@ def default_functions(webdriver, logger):
         #Acessa página
         webdriver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
         # Realiza o download dos cookies
-        save_cookies(webdriver,'Cookies/')
         #Pausa Aleatória
         sleep(random.randint(3, 7))
         #Encontra elemento pelo nome
@@ -63,17 +62,6 @@ def formatted_datetime_utc_now():
 
     return formatted_datetime
 
-
-def save_cookies(driver, path):
-    with open(path, 'wb') as filehandler:
-        pickle.dump(driver.get_cookies(), filehandler)
-
-
-def load_cookies(driver, path):
-    with open(path, 'rb') as cookiesfile:
-        cookies = pickle.load(cookiesfile)
-        for cookie in cookies:
-            driver.add_cookie(cookie)
 
 
 

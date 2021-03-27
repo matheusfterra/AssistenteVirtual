@@ -27,7 +27,8 @@ def init_webdriver(logger):
     chrome_options = uc.ChromeOptions()
     chrome_options.add_argument(f"user-agent= {AGENT}")
     chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-    chrome_options.add_argument("--incognito")
+    #chrome_options.add_argument("--incognito")
+    chrome_options.add_argument('--user-data-dir=./Configs/User_Data')
     #chrome_options.add_argument('headless')
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--disable-popup-blocking")
@@ -47,6 +48,7 @@ def cria_assistente(logger):
     browserdriver = init_webdriver(logger=logger)
     # Cria objeto assistente
     assistente = AssistentEngine(browserdriver)
+
 
 
     # Fechamento do browser
