@@ -3,6 +3,9 @@ from time import sleep
 import datetime, pytz
 import random
 
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 
 def default_functions(webdriver, logger):
@@ -21,11 +24,25 @@ def default_functions(webdriver, logger):
         #Data Atual para inserção no banco de dados
         date=formatted_datetime_utc_now()
 
+        elements = WebDriverWait(webdriver, 30).until(
+            EC.visibility_of_all_elements_located((By.XPATH, '')))
 
 
 
+def acesso_whatsapp(logger,webdriver):
+    webdriver.get('https://web.whatsapp.com/')
 
+    try:
+        elements = WebDriverWait(webdriver, 30).until(
+        EC.visibility_of_all_elements_located((By.XPATH, '//*[@id="side"]/header/div[1]/div/img')))
 
+        print("A imagem foi encontrada")
+    except:
+        logger.error("Não foi possível carregar o Web WhatsApp.")
+
+    for i in range(1,11):
+        nomes_conversas = webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[{}]/div/div/div/div[2]/div[1]/div[1]/span'.format(i)).text
+        print(nomes_conversas)
 
 
 
