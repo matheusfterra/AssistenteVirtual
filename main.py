@@ -48,9 +48,7 @@ def cria_assistente(logger):
     browserdriver = init_webdriver(logger=logger)
     # Cria objeto assistente
     assistente = AssistentEngine(browserdriver)
-
     assistente.whatsapp_agent(logger)
-
 
     # Fechamento do browser
     browserdriver.close()

@@ -40,13 +40,47 @@ def acesso_whatsapp(logger,webdriver):
     except:
         logger.error("Não foi possível carregar o Web WhatsApp.")
 
-    for i in range(1,11):
-        nomes_conversas = webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[{}]/div/div/div/div[2]/div[1]/div[1]/span'.format(i)).text
-        print(nomes_conversas)
+    list_users = []
+    list_qtd_msgs = []
+    for i in range(11,0,-1):
+        new_message=True
 
+        try:
+            qtd_msg=webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[{}]/div/div/div/div[2]/div[2]/div[2]/span[1]/div/span'.format(i)).text
+            if qtd_msg=="":
+                qtd_msg=webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[{}]/div/div/div/div[2]/div[2]/div[2]/span[1]/div[2]/span'.format(i)).text
 
+            try:
+                user=webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[{}]/div/div/div/div[2]/div[1]/div[1]/span/span'.format(i)).text
+            except:
+                user=webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[{}]/div/div/div/div[2]/div[1]/div[1]/span'.format(i)).text
 
+            list_users.append(user)
+            list_qtd_msgs.append(qtd_msg)
 
+        except:
+            new_message=False
+
+        if new_message:
+            print("Há {} novas mensagens desta conversa".format(qtd_msg))
+        else:
+            print("Não há mensagens novas desta conversa.")
+
+    print(list_users)
+    print(list_qtd_msgs)
+
+    botao_msg=webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]')
+    botao_msg.click()
+    sleep(2)
+    ultima_msg=webdriver.find_element_by_xpath('//*[@id="main"]/div[3]/div/div/div[2]/div[8]/div/div/div/div[1]/div/span[1]/span').text
+    print(ultima_msg)
+
+    botao_msg = webdriver.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[10]')
+    botao_msg.click()
+    sleep(2)
+    ultima_msg = webdriver.find_element_by_xpath(
+        '//*[@id="main"]/div[3]/div/div/div[3]/div[14]/div/div/div/div[1]/div/span[1]/span').text
+    print(ultima_msg)
 
 
 
